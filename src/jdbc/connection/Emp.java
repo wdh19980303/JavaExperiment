@@ -1,4 +1,4 @@
-package database.connection;
+package jdbc.connection;
 
 /**
  * 封装employee的javaBean
@@ -38,6 +38,6 @@ public class Emp {
                 "id=" + id +
                 ", age=" + age +
                 ", name='" + name + '\'' +
-                '}';
+                '}'+"\n";
     }
 }
