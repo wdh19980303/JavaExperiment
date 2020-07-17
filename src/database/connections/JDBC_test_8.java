@@ -1,18 +1,18 @@
-package jdbc.connection;
+package database.connections;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ¶¨ÒåÒ»¸ö·½·¨£¬²éÑ¯emp±íµÄÊý¾Ý½«Æä·â×°³É¶ÔÏó
+ * æ¼”ç¤ºjdbcå·¥å…·ç±»
  */
-
-public class JDBC_test_7 {
+public class JDBC_test_8 {
     public static void main(String[] args) {
-        List<Emp> empList = new JDBC_test_7().findAll();
+        List<Emp> empList = new JDBC_test_8().findAll();
 //        System.out.println(emp.getAge() + "___" + emp.getId() + "___" + emp.getId());
         System.out.println(empList);
+//        JDBCUtils.getConfig();
     }
 
     public List<Emp> findAll() {
@@ -24,23 +24,24 @@ public class JDBC_test_7 {
         String sqlQuery = "select * from employee";
         Emp emp = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql:///java", "alice", "0000");
+            /*Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql:///java", "alice", "0000");*/
 
+            conn = JDBCUtils.getConnection();
             stat = conn.createStatement();
-             res = stat.executeQuery(sqlQuery);
+            res = stat.executeQuery(sqlQuery);
             while (res.next()) {
                 count++;
                 int id = res.getInt("id");
                 int age = res.getInt("age");
                 String name = res.getNString("name");
 
-                //´´½¨emp¶ÔÏó ²¢¸³Öµ
+                //åˆ›å»ºempå¯¹è±¡ å¹¶èµ‹å€¼
                 emp = new Emp();
                 emp.setId(id);
                 emp.setAge(age);
                 emp.setName(name);
-                //×°ÔØ
+                //è£…è½½
                 listEmp.add(emp);
 
             }
@@ -48,7 +49,8 @@ public class JDBC_test_7 {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (res != null) {
+            JDBCUtils.close(res,stat,conn);
+            /*if (res != null) {
                 try {
                     res.close();
                 } catch (SQLException throwables) {
@@ -71,11 +73,10 @@ public class JDBC_test_7 {
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
-            }
+            }*/
 
         }
         System.out.println(count);
         return listEmp;
     }
-
 }

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/jdbc/connection/JDBC_test_7.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/jdbc/connection/JDBC_test_9.java" charset="GBK" />
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/cn/itcast/thread/Season.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/itcast/thread/execution.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/database/connections/JDBC_test_7.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/database/connections/JDBC_test_9.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

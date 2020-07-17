@@ -1,4 +1,4 @@
-package jdbc.connection;
+package database.connections;
 
 import java.io.File;
 import java.io.FileReader;
@@ -30,13 +30,14 @@ public class JDBCUtils {
         //2 加载文件
         //使用ClassLoader加载器获取路径，类加载器默认路径是scr下
 
-        ClassLoader classLoader = JDBCUtils.class.getClassLoader();
+        /*ClassLoader classLoader = JDBCUtils.class.getClassLoader();
         URL res = classLoader.getResource("jdbc.properties");
-        path = res.getPath();
+        path = res.getPath();*/
 //        System.out.println(path);
         try {
-//            configuration.load(new FileReader("scr/jdbc.properties"));
-            configuration.load(new FileReader(path));
+
+            configuration.load(JDBCUtils.class.getClassLoader().getResourceAsStream("jdbc.properties"));
+//            configuration.load(new FileReader(path));
         } catch (IOException exception) {
             exception.printStackTrace();
         }

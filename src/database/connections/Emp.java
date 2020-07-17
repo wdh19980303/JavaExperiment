@@ -1,4 +1,4 @@
-package jdbc.connection;
+package database.connections;
 
 /**
  * 封装employee的javaBean
