@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class test {
     @Test
-    public void uu() {
+    public void test1() {
         String sql = "select * from account";
         ResultSet resultSet = null;
         PreparedStatement ps = null;
@@ -24,8 +24,33 @@ public class test {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            DataSourceUtils.close(resultSet,ps,connection);
+            DataSourceUtils.close(resultSet, ps, connection);
         }
 
     }
+
+
+    @Test
+    public void test2() {
+        int i = 0;
+        do {
+            System.out.println(i++);
+        } while (i < 5);
+    }
+
+    @Test
+    public void  test3(){
+        Integer x =Integer.valueOf(9);
+        Double c = Double.valueOf(5);
+        Float a = Float.valueOf("80");
+
+        Integer b = Integer.valueOf("444",16);   // 使用 16 进制
+
+        /*System.out.println(x);
+        System.out.println(c);
+        System.out.println(a);
+        System.out.println(b);*/
+        System.out.println(4*16*16+4*16+4);
+    }
+
 }
